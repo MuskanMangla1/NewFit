@@ -9,9 +9,9 @@ export default function HeroSection() {
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
             }}
-            className="realtive min-h-screen w-full flex items-center justify-center text-white"
+            className="relative md:mt-10 min-h-screen w-full flex items-center justify-center text-white z-10"
         >
-            <div className="absolute min-h-screen w-full top-0 left-0 bg-black/60 z-0"/>
+            <div className="absolute h-[100%] w-full top-0 left-0 bg-black/60 z-0"/>
             
             <div className="mx-5 md:w-1/2 text-center z-50 flex flex-col gap-6 items-center justify-center">
                 <h1 className="text-4xl md:text-6xl/18 font-semibold  md:font-bold mb-4">
@@ -28,7 +28,7 @@ export default function HeroSection() {
                     </button>
                 </div>
 
-                <div className="mt-16 flex md:w-[60%] gap-4">
+                <div className="mt-16 flex md:w-[60%] gap-2 md:gap-4">
                     <img 
                         src="https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" 
                         className="w-12 h-12 rounded-full object-cover"
