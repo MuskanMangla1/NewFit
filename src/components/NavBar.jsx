@@ -6,49 +6,111 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full flex justify-between items-center z-50 p-4 px-5 md:px-8 bg-black/30 backdrop-blur-md shadow-lg">
-      <div className="flex items-center gap-4">
-        <img src={logo} alt="Logo" className="w-14 h-14 object-cover" />
-        <div>
-          <h1 className="text-white text-2xl font-bold leading-none">newfit</h1>
-          <h1 className="text-teal-500 text-2xl font-bold leading-none">Gym</h1>
+    <>
+      <header className="fixed top-4 left-0 right-0 z-50 px-4">
+        <div className="container mx-auto">
+          <div className="relative flex h-16 items-center justify-between rounded-full border border-white/10 bg-black/30 px-4 shadow-lg backdrop-blur-xl sm:px-6">
+            {/* Logo Section */}
+            <div className="flex items-center gap-4 flex-shrink-0">
+              <img src={logo} alt="Logo" className="w-10 h-10 object-cover rounded-full" />
+              <div>
+                <h1 className="text-white text-lg font-bold leading-none">newfit</h1>
+                <h1 className="text-teal-500 text-lg font-bold leading-none">Gym</h1>
+              </div>
+            </div>
+
+            {/* Desktop Navigation - Centered */}
+            <nav className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-1">
+              <a href="#home" className="text-white border-b-2 border-teal-500 hover:text-gray-300 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">
+                Home
+              </a>
+              <a href="#about" className="text-white hover:text-gray-300 hover:bg-white/10 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">
+                About
+              </a>
+              <a href="#services" className="text-white hover:text-gray-300 hover:bg-white/10 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">
+                Services
+              </a>
+              <a href="#contact" className="text-white hover:text-gray-300 hover:bg-white/10 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">
+                Contact
+              </a>
+            </nav>
+
+            {/* Right side actions */}
+            <div className="flex items-center gap-2">
+              <button className="bg-teal-500 py-2 px-4 text-black font-medium rounded-full hover:bg-teal-600 transition-colors duration-300 text-xs h-8 hidden sm:flex items-center">
+                Start Free Trial
+              </button>
+              <div className="md:hidden">
+                <button 
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="p-2 rounded-full hover:bg-white/10 transition-colors duration-300"
+                >
+                  {isOpen ? <X size={24} color="white" /> : <Menu size={24} color="white" />}
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex">
-        <ul className="flex space-x-8 items-center">
-          <li><a href="#home" className="text-white border-b-4 border-teal-500 hover:text-gray-300">Home</a></li>
-          <li><a href="#about" className="text-white hover:text-gray-300">About</a></li>
-          <li><a href="#services" className="text-white hover:text-gray-300">Services</a></li>
-          <li><a href="#contact" className="text-white hover:text-gray-300">Contact</a></li>
-          <li>
-            <button className="bg-teal-500 py-2 px-6 text-black font-medium rounded-full hover:bg-teal-600 transition-colors duration-300">
-              Start Free Trial
-            </button>
-          </li>
-        </ul>
-      </nav>
-
-      {/* Hamburger Icon */}
-      <div className="md:hidden z-50">
-        <button onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={28} color="white" /> : <Menu size={28} color="white" />}
-        </button>
-      </div>
+      </header>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute z-50 top-full left-0 w-full bg-black/90 backdrop-blur-md flex flex-col items-center py-6 space-y-4 md:hidden">
-          <a href="#home" className="text-white border-b-4 border-teal-500 hover:text-gray-300" onClick={() => setIsOpen(false)}>Home</a>
-          <a href="#about" className="text-white hover:text-gray-300" onClick={() => setIsOpen(false)}>About</a>
-          <a href="#services" className="text-white hover:text-gray-300" onClick={() => setIsOpen(false)}>Services</a>
-          <a href="#contact" className="text-white hover:text-gray-300" onClick={() => setIsOpen(false)}>Contact</a>
-          <button className="bg-teal-500 py-2 px-6 text-black font-medium rounded-full hover:bg-teal-600 transition-colors duration-300" onClick={() => setIsOpen(false)}>
-            Start Free Trial
-          </button>
+        <div className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm md:hidden">
+          <div className="absolute top-0 left-0 right-0 bg-black/80 backdrop-blur-xl border-b border-white/10 p-4 rounded-b-3xl mx-4 mt-4">
+            <div className="flex justify-between items-center mb-8">
+              <div className="flex items-center gap-4">
+                <img src={logo} alt="Logo" className="w-10 h-10 object-cover rounded-full" />
+                <div>
+                  <h1 className="text-white text-lg font-bold leading-none">newfit</h1>
+                  <h1 className="text-teal-500 text-lg font-bold leading-none">Gym</h1>
+                </div>
+              </div>
+              <button 
+                onClick={() => setIsOpen(false)}
+                className="p-2 rounded-full hover:bg-white/10 transition-colors duration-300"
+              >
+                <X size={24} color="white" />
+              </button>
+            </div>
+            <nav className="flex flex-col gap-4 text-center">
+              <a 
+                href="#home" 
+                className="text-white border-b-2 border-teal-500 hover:text-gray-300 text-lg font-medium p-2 rounded-lg transition-all duration-300" 
+                onClick={() => setIsOpen(false)}
+              >
+                Home
+              </a>
+              <a 
+                href="#about" 
+                className="text-white hover:text-gray-300 hover:bg-white/10 text-lg font-medium p-2 rounded-lg transition-all duration-300" 
+                onClick={() => setIsOpen(false)}
+              >
+                About
+              </a>
+              <a 
+                href="#services" 
+                className="text-white hover:text-gray-300 hover:bg-white/10 text-lg font-medium p-2 rounded-lg transition-all duration-300" 
+                onClick={() => setIsOpen(false)}
+              >
+                Services
+              </a>
+              <a 
+                href="#contact" 
+                className="text-white hover:text-gray-300 hover:bg-white/10 text-lg font-medium p-2 rounded-lg transition-all duration-300" 
+                onClick={() => setIsOpen(false)}
+              >
+                Contact
+              </a>
+              <button 
+                className="bg-teal-500 py-3 px-6 text-black font-medium rounded-full hover:bg-teal-600 transition-colors duration-300 mt-4" 
+                onClick={() => setIsOpen(false)}
+              >
+                Start Free Trial
+              </button>
+            </nav>
+          </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

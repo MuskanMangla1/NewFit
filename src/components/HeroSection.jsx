@@ -9,7 +9,7 @@ export default function HeroSection() {
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
             }}
-            className="relative md:mt-20 min-h-screen w-full flex items-center justify-center text-white z-10"
+            className="relative md:pt-20 min-h-screen w-full flex items-center  justify-center text-white z-10"
         >
             <div className="absolute h-[100%] w-full top-0 left-0 bg-black/60 z-0"/>
             
